@@ -1,5 +1,7 @@
 <template>
   <footer>
-    Visit our website for more documentation : <a href="https://nuxtjs.org" target="_blank">nuxtjs.org</a>
+    <a href="http://www.dungeonworldsrd.com/" target="_blank">Check out the Dungeon World SRD for more.</a>
+    <br />
+    <a href="https://nuxtjs.org" target="blank">Made using nuxtjs.org</a>
   </footer>
 </template>
