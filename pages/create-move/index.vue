@@ -3,17 +3,25 @@
     <h1 class="title">
       Make a Move
     </h1>
+    <div class="field">
+      <div class="control">
+        <label class="label">Name</label>
+        <input type="text" placeholder="Kung Fu Grip">
+        <label class="label">Description</label>
+        <textarea class="textarea" :placeholder="descriptionPlaceholder" />
+      </div>
+    </div>
   </section>
 </template>
 
 <script>
-import axios from '~/plugins/axios'
 
 export default {
   // Likely not needed? Subpages will be good for this one.
-  async asyncData () {
-    let { data } = await axios.get('/api/users')
-    return { users: data }
+  data () {
+    return {
+      descriptionPlaceholder: 'Give your move some backstory or context. If there are special conditions around when this move can be used, they should be described here.'
+    }
   },
   head () {
     return {
@@ -27,9 +35,5 @@ export default {
 .title
 {
   margin: 30px 0;
-}
-ul
-{
-  list-style-type: none;
 }
 </style>
