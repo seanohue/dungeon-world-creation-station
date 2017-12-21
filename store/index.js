@@ -3,12 +3,11 @@ import Vuex from 'vuex'
 const createStore = () => {
   return new Vuex.Store({
     state: {
-      counter: 0
+      moves: [] // eventually pull them in from API!
     },
     mutations: {
-      increment (state) {
-        console.log('INCREMENTED')
-        state.counter++
+      addMove (state, move) {
+        state.moves.push(move)
       }
     }
   })
