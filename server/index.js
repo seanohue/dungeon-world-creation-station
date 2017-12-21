@@ -1,9 +1,12 @@
 import express from 'express'
 import { Nuxt, Builder } from 'nuxt'
-
+import bodyparser from 'body-parser'
 import api from './api'
+import lowdb from './db'
 
 const app = express()
+app.use(bodyparser.json())
+
 const host = process.env.HOST || '127.0.0.1'
 const port = process.env.PORT || 3000
 
