@@ -63,8 +63,7 @@ export default {
     },
 
     submit () {
-      this.$store.commit('addMove', this.objectify())
-      this.$emit('save', 'moves')
+      this.$store.dispatch('addMove', this.objectify())
     },
 
     objectify () {

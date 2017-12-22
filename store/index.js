@@ -31,15 +31,33 @@ const createStore = () => {
           axios.get('/api/classes'),
           axios.get('/api/characters')
         ]).then(([
-          { moves },
-          { classes },
-          { characters }
+          { moves = [] },
+          { classes = [] },
+          { characters = [] }
         ]) => {
           moves.forEach(move => context.commit('addMove', move))
           classes.forEach(_class => context.commit('addClass', _class))
           characters.forEach(char => context.commit('addCharacter', char))
           context.commit('setHydrated', true)
         }).catch(err => console.error(err))
+      },
+      addMove (context, move) {
+        context.commit('addMove', move)
+        context.dispatch('saveToDb', 'moves')
+      },
+      addClass (context, _class) {
+        context.commit('addClass', _class)
+        context.dispatch('saveToDb', 'classes')
+      },
+      addCharacter (context, char) {
+        context.commit('addCharacter', char)
+        context.dispatch('saveToDb', 'characters')
+      },
+      saveToDb (context, category) {
+        console.log('Saving ', category)
+        axios.post(`/api/${category}`, context.state[category])
+          .then(res => console.log(res))
+          .catch(err => console.error(err))
       }
     }
   })
