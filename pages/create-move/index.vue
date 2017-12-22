@@ -93,6 +93,6 @@ export default {
 }
 button
 {
-  padding: 5
+  padding: 0
 }
 </style>

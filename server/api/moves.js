@@ -20,6 +20,7 @@ router.get('/moves/:id', function (req, res) {
 })
 
 router.post('/moves', function (req, res) {
+  console.log('posting to moves', req.body);
   db.get('moves')
     .push(req.body)
     // assign id here?
