@@ -7,13 +7,11 @@
 </template>
 
 <script>
-import axios from '~/plugins/axios'
 
 export default {
   // Likely not needed? Subpages will be good for this one.
   async asyncData () {
-    let { data } = await axios.get('/api/users')
-    return { users: data }
+    return { classes: [] }
   },
   head () {
     return {

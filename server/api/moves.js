@@ -27,6 +27,7 @@ router.post('/moves', function (req, res) {
     // assign id here?
     .write()
     .then(post => res.send(post))
+    .catch(console.error)
 })
 
 export default router
