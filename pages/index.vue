@@ -9,6 +9,9 @@
 <script>
 
 export default {
+  created () {
+    return this.$store.dispatch('hydrate')
+  },
   head () {
     return {
       title: 'Dungeon World Character Creator'

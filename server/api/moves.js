@@ -3,19 +3,17 @@ import db from '../db'
 
 const router = Router()
 
-/* GET users listing. */
 router.get('/moves', function (req, res) {
-  res.json(db.get('moves'))
+  res.json({ moves: db.get('moves', []) })
 })
 
-/* GET user by ID. */
 router.get('/moves/:id', function (req, res) {
   const id = req.params.id
   let result;
   if (id) {
-    result = db.get('moves').find({ id })
-    if (result) res.json(result)
-  } 
+    result = db.get('moves', []).find({ id })
+    if (result) res.json({ result })
+  }
   if (!result) {
     res.sendStatus(404)
   }
