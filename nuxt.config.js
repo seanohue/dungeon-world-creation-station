@@ -10,7 +10,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Nuxt.js project' }
     ],
     link: [
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Risque' }
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Risque' },
       { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css' },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     ]
