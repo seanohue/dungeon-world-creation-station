@@ -21,8 +21,9 @@ export default {
     console.log({params})
     return axios.get('/api/moves/' + params.id)
       .then((res) => {
-        console.log('Got: ')
-        return { move: res.data }
+        console.log('Got: ', res.data)
+        const { result = {} } = res.data
+        return { move: result }
       })
       .catch((e) => {
         console.error(e)

@@ -11,7 +11,17 @@ router.get('/moves/:id', function (req, res) {
   const id = req.params.id
   let result;
   if (id) {
-    result = db.get('moves', []).find({ id })
+    console.log('SERVER: checking for ' + id)
+    result = db
+      .get('moves', [])
+      .find(([move]) => { // WHY IS IN ARRAY?
+        console.log({move})
+        console.log(`Checking ${move.id} against search ${id}`)
+        return move.id === id
+      })
+      .last()
+      .value()
+    console.log('SERVER: found ', result)
     if (result) res.json({ result })
   }
   if (!result) {

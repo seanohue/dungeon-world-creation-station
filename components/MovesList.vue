@@ -2,7 +2,7 @@
   <div class="section">
     <div class="container">
       <template v-for="move in moves">
-        <nuxt-link :to="{ name: 'move', params: { id: move.id, move } }">
+        <nuxt-link :to="{ name: 'move', params: { id: move.id, move: move.id } }">
           <button class="button is-link">{{move.moveName}}</button>
         </nuxt-link>
       </template>
