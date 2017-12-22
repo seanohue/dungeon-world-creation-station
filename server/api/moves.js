@@ -25,7 +25,7 @@ router.post('/moves', function (req, res) {
     .push(req.body)
     // assign id here?
     .write()
-    .then(post => res.send(post))
+    .then(post => console.log(post) || res.send(post))
     .catch(console.error)
 })
 

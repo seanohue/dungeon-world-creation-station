@@ -1,5 +1,32 @@
 {
-  "moves": [],
+  "moves": [
+    [
+      {
+        "id": "kung-fu-grip",
+        "moveName": "Kung Fu Grip",
+        "moveDesc": "Oh snap!",
+        "hasRoll": true,
+        "rollModifier": "DEX",
+        "roll": "2d6",
+        "success": "You grab your enemy and throw them, dealing weapon damage plus adding the stunned tag.",
+        "partial": "You grab you enemy and throw them, dealing damage. Choose two out of three:\n- You deal only 1d4 damage.\n- Your enemy is not stunned.\n- You fall mid-throw and gain the knocked-down tag.",
+        "failure": "All three of the above things happen after your throw attempt, and you drop any items you're holding."
+      }
+    ],
+    [
+      {
+        "id": "falcon-punch",
+        "moveName": "Falcon Punch",
+        "moveDesc": "Hyaahahahahaah",
+        "hasRoll": true,
+        "rollModifier": "STR",
+        "roll": "2d6",
+        "success": "Your opponent is knocked down, knocked back 8 feet, and takes 1d8 damage. They also drop anything in their hands.",
+        "partial": "Choose 1 of 3:\n- Your opponent is not knocked down or back\n- Your opponent only takes 1d4 damage\n- Your opponent keeps their equipment in hand.",
+        "failure": "You whiff and hit an unintended target!"
+      }
+    ]
+  ],
   "characters": [],
   "classes": []
 }

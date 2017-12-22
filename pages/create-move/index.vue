@@ -35,6 +35,7 @@
 
 <script>
 import StatSelect from '~/components/StatSelect.vue'
+import createId from '~/plugins/createId'
 
 export default {
   components: { StatSelect },
@@ -45,7 +46,7 @@ export default {
       rollPartialPlaceholder: 'Good things happen... but at a cost.',
       rollFailurePlaceholder: 'Bad things happen, and you mark XP.',
 
-      moveName: '', // make required.
+      moveName: '', // TODO: make required.
       moveDesc: '',
 
       hasRoll: true,
@@ -63,7 +64,14 @@ export default {
     },
 
     submit () {
-      this.$store.dispatch('addMove', this.objectify())
+      const obj = this.objectify()
+      const id = createId(obj.moveName)
+      if (this.$store.moves.find(move => move.id === id)) {
+        console.log('Duplicate move!')
+        return
+      }
+      obj.id = id
+      this.$store.dispatch('addMove', obj)
     },
 
     objectify () {
@@ -80,7 +88,7 @@ export default {
 
   head () {
     return {
-      title: 'Dungeon World Character Creator'
+      title: 'Create Move - Dungeon World Character Creator'
     }
   }
 }

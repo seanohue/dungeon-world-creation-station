@@ -3,18 +3,28 @@
     <h1 class="title">
       View Moves
     </h1>
+    <MovesList :moves="moves"/>
   </section>
 </template>
 
 <script>
+import MovesList from '~/components/MovesList'
 import axios from '~/plugins/axios'
 
 export default {
-  // Likely needed. Will be similar to the seed app in fact.
-  // List characters by name and click them to view.
-  async asyncData () {
-    let { moves } = await axios.get('/api/moves')
-    return { moves }
+  components: { MovesList },
+  asyncData ({ error }) {
+    return axios.get('/api/moves')
+      .then(({ data = {} }) => {
+        const moveTuples = data.moves || []
+        const moves = moveTuples.map((tuple = []) => tuple[0] || {})
+        console.log('Got moves: ', {data, moveTuples, moves})
+        return { moves }
+      })
+      .catch(e => {
+        console.error(e)
+        error({ statusCode: 404, message: 'Failed to fetch moves' })
+      })
   },
   head () {
     return {

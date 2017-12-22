@@ -9,7 +9,7 @@
           <nuxt-link class="navbar-item" to="/create-class">Create Class</nuxt-link>
           <nuxt-link class="navbar-item" to="/view-class">View Classes</nuxt-link>
           <nuxt-link class="navbar-item" to="/create-move">Create Move</nuxt-link>
-          <nuxt-link class="navbar-item" to="/view-move">View Move</nuxt-link>
+          <nuxt-link class="navbar-item" to="/view-move">View Moves</nuxt-link>
         </div>
       </div>
     </nav>

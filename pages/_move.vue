@@ -1,14 +1,13 @@
 <template>
   <section class="container">
-    <img src="~assets/img/logo.png" alt="Nuxt.js Logo" class="logo" />
     <h1 class="title">
-      User
+      {{ move.moveName }}
     </h1>
     <h2 class="info">
-      {{ user.name }}
+      {{ move.moveDesc }}
     </h2>
-    <nuxt-link class="button" to="/">
-      Users
+    <nuxt-link class="button" to="/view-move">
+      Moves
     </nuxt-link>
   </section>
 </template>
@@ -17,19 +16,22 @@
 import axios from '~/plugins/axios'
 
 export default {
-  name: 'id',
-  asyncData ({ params, error }) {
-    return axios.get('/api/users/' + params.id)
+  name: 'move',
+  async asyncData ({ params, error }) {
+    console.log({params})
+    return axios.get('/api/moves/' + params.id)
       .then((res) => {
-        return { user: res.data }
+        console.log('Got: ')
+        return { move: res.data }
       })
       .catch((e) => {
-        error({ statusCode: 404, message: 'User not found' })
+        console.error(e)
+        error({ statusCode: 404, message: 'Move not found' })
       })
   },
   head () {
     return {
-      title: `User: ${this.user.name}`
+      title: `Move: ${this.move.moveName}`
     }
   }
 }
