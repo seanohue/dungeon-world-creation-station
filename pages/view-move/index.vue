@@ -18,11 +18,9 @@ export default {
       .then(({ data = {} }) => {
         const moveTuples = data.moves || []
         const moves = moveTuples.map((tuple = []) => tuple[0] || {})
-        console.log('Got moves: ', {data, moveTuples, moves})
         return { moves }
       })
       .catch(e => {
-        console.error(e)
         error({ statusCode: 404, message: 'Failed to fetch moves' })
       })
   },

@@ -25,6 +25,19 @@
         "partial": "Choose 1 of 3:\n- Your opponent is not knocked down or back\n- Your opponent only takes 1d4 damage\n- Your opponent keeps their equipment in hand.",
         "failure": "You whiff and hit an unintended target!"
       }
+    ],
+    [
+      {
+        "moveName": "Super Strength",
+        "moveDesc": "+3 to one strength check per day",
+        "hasRoll": false,
+        "rollModifier": "",
+        "roll": "2d6",
+        "success": "",
+        "partial": "",
+        "failure": "",
+        "id": "super-strength"
+      }
     ]
   ],
   "characters": [],

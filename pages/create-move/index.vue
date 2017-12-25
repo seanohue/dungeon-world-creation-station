@@ -66,7 +66,9 @@ export default {
     submit () {
       const obj = this.objectify()
       const id = createId(obj.moveName)
-      if (this.$store.moves.find(move => move.id === id)) {
+      console.log({ store: this.$store })
+      let moves = this.$store.moves || []
+      if (moves.find(move => move.id === id)) {
         console.log('Duplicate move!')
         return
       }

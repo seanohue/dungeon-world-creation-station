@@ -6,6 +6,12 @@
     <h2 class="info">
       {{ move.moveDesc }}
     </h2>
+    <p :v-if="hasRoll" class="info">
+      Roll: {{ move.roll }} <br />
+      On a success: {{ move.success }} <br />
+      When you partially succeed: {{ move.partial }} <br />
+      On failure: {{ move.failure }} <br />
+    </p>
     <nuxt-link class="button" to="/view-move">
       Moves
     </nuxt-link>
@@ -18,7 +24,6 @@ import axios from '~/plugins/axios'
 export default {
   name: 'move',
   async asyncData ({ params, error }) {
-    console.log({params})
     return axios.get('/api/moves/' + params.id)
       .then((res) => {
         console.log('Got: ', res.data)
