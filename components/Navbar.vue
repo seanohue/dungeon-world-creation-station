@@ -2,9 +2,10 @@
   <div class="container">
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <button :class="{ 'is-pulled-left': true, 'is-hidden-desktop': true, button: true, 'navbar-burger': true, 'is-active': isActive }" @click="toggleBurger" id="burger">
-          <NavMenu end="false" v-if="isActive" />
-          <EmptyNavMenu v-if="!isActive" />
+        <button :class="{ 'navbar-burger': true, 'is-active': isActive }" @click="toggleBurger">
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
       </div>
       <NavMenu :active="isActive"/>
@@ -13,11 +14,10 @@
 </template>
 
 <script>
-import EmptyNavMenu from './EmptyNavMenu'
 import NavMenu from './NavMenu'
 
 export default {
-  components: { EmptyNavMenu, NavMenu },
+  components: { NavMenu },
   data () {
     return { isActive: false }
   },
