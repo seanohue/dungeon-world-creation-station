@@ -7,9 +7,7 @@
           <EmptyNavMenu v-if="!isActive" />
         </button>
       </div>
-      <div class="navbar-menu">
-        <NavMenu end="true" />
-      </div>
+      <NavMenu :active="isActive"/>
     </nav>
   </div>
 </template>
