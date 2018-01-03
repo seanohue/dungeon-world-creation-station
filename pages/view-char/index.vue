@@ -13,7 +13,7 @@ export default {
   // Likely needed. Will be similar to the seed app in fact.
   // List characters by name and click them to view.
   async asyncData () {
-    let { characters } = await axios.get('/api/chars')
+    let { characters } = await axios.get('/api/characters')
     return { characters }
   },
   head () {
