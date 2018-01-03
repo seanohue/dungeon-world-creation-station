@@ -2,8 +2,8 @@
   <div class="section">
     <div class="container">
       <template v-for="move in moves">
-        <nuxt-link :to="{ name: 'move', params: { id: move.id, move: move.id } }">
-          <button class="button is-link">{{move.moveName}}</button>
+        <nuxt-link :key="move" :to="{ name: 'move', params: { id: move.id, move: move.id } }">
+          <button class="movelink button is-link">{{move.moveName}}</button>
         </nuxt-link>
       </template>
     </div>
@@ -15,7 +15,6 @@ export default {
   name: 'statselect',
   props: ['moves'],
   data () {
-    console.log('MoveList:::', this)
     return {}
   },
   methods: {
@@ -25,3 +24,10 @@ export default {
   }
 }
 </script>
+
+<<style scoped>
+.button
+{
+  margin: 5px 5px
+}
+</style>

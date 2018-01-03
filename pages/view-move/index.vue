@@ -16,6 +16,7 @@ export default {
   asyncData ({ error }) {
     return axios.get('/api/moves')
       .then(({ data = {} }) => {
+        // For some reason (vuex?), we get both the Move object and an observable.
         const moveTuples = data.moves || []
         const moves = moveTuples.map((tuple = []) => tuple[0] || {})
         return { moves }
