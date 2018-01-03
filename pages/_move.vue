@@ -6,12 +6,26 @@
     <h2 class="info">
       {{ move.moveDesc }}
     </h2>
-    <p :v-if="hasRoll" class="info">
-      Roll: {{ move.roll }} <br />
-      On a success: {{ move.success }} <br />
-      When you partially succeed: {{ move.partial }} <br />
-      On failure: {{ move.failure }} <br />
-    </p>
+    <div v-if="move.hasRoll" class="info">
+      <!-- TODO: Make this template less trash. Use Bulma good. -->
+      <h3> <strong>Roll: {{ move.roll }}</strong>
+        <span v-if="move.rollModifier"> + <strong>{{ move.rollModifier }}</strong> </span>
+      </h3>
+      <div class="columns">
+        <div class="column" v-if="move.success">
+          <strong>On a success:</strong>
+          <p>{{ move.success }}</p>
+        </div>
+        <div class="column" v-if="move.partial">
+          <strong>When you partially succeed:</strong>
+          <p>{{ move.partial }}</p>
+        </div>
+        <div class="column" v-if="move.failure">
+          <strong>On failure:</strong>
+          <p>{{ move.failure }}</p>
+        </div>
+      </div>
+    </div>
     <nuxt-link class="button" to="/view-move">
       Moves
     </nuxt-link>
