@@ -1,13 +1,9 @@
 <template>
   <div class="select">
     <select v-model="stat">
-      <option value="STR">STR</option>
-      <option value="DEX">DEX</option>
-      <option value="CON">CON</option>
-      <option value="INT">INT</option>
-      <option value="WIS">WIS</option>
-      <option value="CHA">CHA</option>
+      <option v-for="(st, i) in stats" :key="i" value="st">{{st}}</option>
     </select>
+    <!-- TODO: Support "OTHER" option w/ text field. -->
   </div>
 </template>
 
@@ -16,7 +12,8 @@ export default {
   name: 'statselect',
   data () {
     return {
-      stat: ''
+      stat: '',
+      stats: ['STR', 'DEX', 'INT', 'WIS', 'CON', 'CHA']
     }
   },
   watch: {
